@@ -46,17 +46,31 @@ hamburger.addEventListener('click', () => {
 });
 
 
-fetch('menu.csv')
-  .then(response => response.text())
-  .then(csv => {
-    const rows = csv.trim().split('\n').map(r => r.split(','));
-    const [headerRow, ...dataRows] = rows;
-
-    const container = document.getElementById('menu-items');
-    dataRows.forEach(row => {
-      const card = document.createElement('div');
-      card.className = 'menu-card';
-      card.innerHTML = `<h3>${row[0]}</h3><p>${row[1]}</p>`;
-      container.appendChild(card);
-    });
-  });
+// fetch('menu.csv')
+//   .then(response => response.text())
+//   .then(csv => {
+//     const rows = csv.trim().split('\n').map(r => r.split(','));
+//     console.log(rows);
+//     const [headerRow, ...dataRows] = rows;
+// 
+//     const container = document.getElementById('menu-items');
+//     dataRows.forEach(row => {
+//       const card = document.createElement('div');
+//       card.className = 'menu-card';
+//       card.innerHTML = `<h3>${row[0]}</h3><p>${row[1]}</p>`;
+//       container.appendChild(card);
+//     });
+//   });
+const menuItems = [
+  { name: "Strawberry Cupcake", price: "$3.50" },
+  { name: "Rose Latte", price: "$4.00" },
+  { name: "Pink Macaron", price: "$2.00" },
+  { name: "Cherry Cheesecake", price: "$5.00" }
+];
+const container = document.getElementById('menu-items');
+menuItems.forEach(row => {
+  const card = document.createElement('div');
+  card.className = 'menu-card';
+  card.innerHTML = `<h3>${row.name}</h3><p>${row.price}</p>`;
+  container.appendChild(card);
+});
