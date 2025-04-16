@@ -46,6 +46,23 @@ hamburger.addEventListener('click', () => {
 });
 
 
+// sections display
+const sections = document.querySelectorAll(".page-section");
+const links = document.querySelectorAll("nav a");
+
+links.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const targetId = link.getAttribute("data-target");
+
+    sections.forEach(sec => {
+      sec.classList.remove("active");
+    });
+
+    document.getElementById(targetId).classList.add("active");
+  });
+});
+
 // fetch('menu.csv')
 //   .then(response => response.text())
 //   .then(csv => {
@@ -74,3 +91,14 @@ menuItems.forEach(row => {
   card.innerHTML = `<h3>${row.name}</h3><p>${row.price}</p>`;
   container.appendChild(card);
 });
+
+
+function showSection(id) {
+  document.querySelectorAll(".page-section").forEach(sec => {
+    sec.classList.remove("active");
+  });
+  const section = document.getElementById(id);
+  if (section) {
+    section.classList.add("active");
+  }
+}

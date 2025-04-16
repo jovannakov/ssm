@@ -15,9 +15,9 @@
   
     <nav>
       <ul class="nav-links">
-        <li><a href="./">Home</a></li>
-        <li><a href="./menu/">Menu</a></li>
-        <li><a href="./about/">About</a></li>
+        <li><a href="#" onclick="showSection('home')" data-target="home">Home</a></li>
+        <li><a href="#" onclick="showSection('menu')" data-target="menu">Menu</a></li>
+        <li><a href="#" onclick="showSection('about')" data-target="about">About</a></li>
       </ul>
     </nav>
   
@@ -29,10 +29,20 @@
     </div>
   </header>
 
-  <main class="hero">
+  <section id="home" class="hero page-section active">
     <h1>Welcome to Pink Café</h1>
     <p>Chic. Sweet. Pink. Experience the cozy vibes with every sip and bite.</p>
-  </main>
+  </section>
+
+  <section id="menu" class="hero page-section">
+    <h2>Our Menu 123</h2>
+    <div id="menu-items" class="menu-grid"></div>
+  </section>
+  
+  <section id="about" class="hero page-section">
+    <h2>Our Story</h2>
+    <p>Founded with love, Pink Café is your go-to destination for sweets, lattes, and cozy vibes. Every detail is curated to bring joy — and a little pink — into your day.</p>
+  </section>
 
   <footer>
     <p>Contact us: pinkcafe@example.com | (123) 456-7890</p>

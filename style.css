@@ -1,6 +1,12 @@
-/* Ensure body and html take full height */
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 body {
@@ -134,7 +140,7 @@ footer {
   background-color: #ffe4e1;
   text-align: center;
   padding: 1rem;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 
 
@@ -203,6 +209,31 @@ footer {
 }
 
 
+section {
+  flex: 1 0 auto;
+  padding: 2rem;
+}
+
+/* page section hide/display */
+.page-section {
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+  pointer-events: none;
+  position: absolute;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: none;
+}
+
+.page-section.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+  position: relative;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+
+}
+
 
 /* Slide-in/Slide-out transitions */
 body.slide-in {
@@ -225,11 +256,20 @@ body.blur-out {
   transition: filter 1s ease;
 }
 
-body.zoom-in {
+/* body.zoom-in {
   transform: scale(1);
   transition: transform 0.5s ease;
 }
 
 body.zoom-out {
+  transform: scale(0);
+} */
+
+section.zoom-in {
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+
+section.zoom-out {
   transform: scale(0);
 }
